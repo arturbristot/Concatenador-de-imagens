@@ -1,6 +1,6 @@
 # Concatenador de Imagens em Python
 
-Este é um simples script em Python que permite a você combinar várias imagens em uma única imagem maior. Se você precisa criar colagens de fotos, gerar mosaicos ou juntar imagens lado a lado ou uma em cima da outra, este script pode ser uma ferramenta útil.
+Este é um simples script em Python que permite a você combinar várias imagens em uma única imagem maior. Se você precisa criar colagens de fotos, gerar mosaicos ou juntar imagens uma em cima da outra, este script pode ser uma ferramenta útil.
 
 ## Como Usar
 
