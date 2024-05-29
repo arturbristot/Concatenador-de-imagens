@@ -30,6 +30,10 @@ def concat_images_from_folder():
     if not folder_path:
         return
 
+    # Cria a pasta "Compilados" dentro da pasta selecionada
+    output_folder = os.path.join(folder_path, "Compilados")
+    os.makedirs(output_folder, exist_ok=True)  # Cria a pasta se não existir
+
     image_files = [
         os.path.join(folder_path, f)
         for f in os.listdir(folder_path)
@@ -43,17 +47,17 @@ def concat_images_from_folder():
         concatenated_image = vconcat_resize_min(images)
 
         if concatenated_image is not None:
-            cv2.imwrite(f'Compilado_{i + 1}.jpg', concatenated_image)
+            output_filename = os.path.join(output_folder, f'Compilado_{i + 1}.jpg')
+            cv2.imwrite(output_filename, concatenated_image)
 
     cv2.destroyAllWindows()
-    messagebox.showinfo("Concluído", f"Imagens concatenadas em grupos de {group_size} salvas na pasta atual.")
+    messagebox.showinfo("Concluído", f"Imagens concatenadas em grupos de {group_size} salvas na pasta: {output_folder}")
 
 root = tk.Tk()
 root.title('Concatenar Imagens')
-root.geometry("220x200")  # Aumenta a largura da janela
-root.configure(bg="#f0f0f0")  # Cor de fundo clara
+root.geometry("220x200") 
+root.configure(bg="#f0f0f0") 
 
-# Estilo para os elementos
 style = ttk.Style()
 style.configure("TLabel", background="#f0f0f0", font=("Roboto", 12))
 style.configure("TEntry", font=("Roboto", 12))
